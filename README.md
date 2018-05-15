@@ -14,14 +14,16 @@ Summary: Connexion - API first applications with OpenAPI/Swagger and Flask
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/connexion-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/connexion-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/connexion-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/connexion-feedstock)
-Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/connexion-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/connexion-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/connexion-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/connexion-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/connexion-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/connexion-feedstock)
+[![Windows](https://img.shields.io/appveyor/ci/conda-forge/connexion-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/connexion-feedstock/branch/master)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/connexion/badges/version.svg)](https://anaconda.org/conda-forge/connexion)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/connexion/badges/downloads.svg)](https://anaconda.org/conda-forge/connexion)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-connexion-green.svg)](https://anaconda.org/conda-forge/connexion) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/connexion.svg)](https://anaconda.org/conda-forge/connexion) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/connexion.svg)](https://anaconda.org/conda-forge/connexion) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/connexion.svg)](https://anaconda.org/conda-forge/connexion) |
 
 Installing connexion
 ====================
