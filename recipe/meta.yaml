@@ -45,7 +45,6 @@ requirements:
 test:
   imports:
     - connexion
-    - connexion.apis
     - connexion.apps
     - connexion.decorators
   commands:
