@@ -3,13 +3,13 @@ About connexion-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/connexion-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/zalando/connexion
+Home: https://github.com/spec-first/connexion
 
 Package license: Apache-2.0
 
-Summary: Swagger/OpenAPI First framework for Python on top of Flask with automatic endpoint validation & OAuth2 support
+Summary: Connexion - API first applications with OpenAPI/Swagger
 
-Development: https://github.com/zalando/connexion
+Development: https://github.com/spec-first/connexion
 
 Documentation: https://connexion.readthedocs.io/
 
