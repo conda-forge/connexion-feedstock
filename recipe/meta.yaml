@@ -21,7 +21,6 @@ requirements:
     - python >=3.8,<4.0
     - poetry-core >=1.2.0
     - pip
-    - flake8
 
   run:
     - python >=3.8.0,<4.0.0
