@@ -1,5 +1,5 @@
 {% set name = "connexion" %}
-{% set version = "3.0.5" %}
+{% set version = "3.0.6" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/connexion-{{ version }}.tar.gz
-  sha256: 3e96023de6c2827c1b035732715a17987d7f2124ff42ab5335419bb1550ccb0b
+  sha256: 6dba2e3d3920653a16d41b373ee8b104281d078c2a3916b773b575c8e919eb1b
 
 build:
   entry_points:
@@ -32,7 +32,7 @@ requirements:
     - python-multipart >=0.0.5
     - pyyaml >=5.1
     - requests >=2.27
-    - starlette >=0.27,<0.33
+    - starlette >=0.35
     - typing-extensions >=4
     - werkzeug >=2.2.1
   run_constrained:
