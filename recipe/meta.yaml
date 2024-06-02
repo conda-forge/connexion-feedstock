@@ -1,5 +1,5 @@
 {% set name = "connexion" %}
-{% set version = "3.0.6" %}
+{% set version = "3.1.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/connexion-{{ version }}.tar.gz
-  sha256: 6dba2e3d3920653a16d41b373ee8b104281d078c2a3916b773b575c8e919eb1b
+  sha256: 66a44580991f53955b6e409a84fa9fa65c7ca4db52dc217b49cd35c201066083
 
 build:
   entry_points:
@@ -27,19 +27,20 @@ requirements:
     - asgiref >=3.4
     - httpx >=0.23
     - inflection >=0.3.1
-    - jsonschema >=4.0.1
+    - jsonschema >=4.17.3
     - jinja2 >=3.0.0
     - python-multipart >=0.0.5
     - pyyaml >=5.1
     - requests >=2.27
     - starlette >=0.35
-    - typing-extensions >=4
+    - typing-extensions >=4.6.1
     - werkzeug >=2.2.1
   run_constrained:
     - a2wsgi >=1.7
     - flask >=2.2
     - swagger-ui-bundle >=1.1.0
     - uvicorn >=0.17.6
+    - jsf >=0.10.0
 
 test:
   imports:
@@ -54,10 +55,12 @@ test:
 
 about:
   home: https://github.com/spec-first/connexion
-  license: Apache-2.0
   summary: Connexion - API first applications with OpenAPI/Swagger
+  license: Apache-2.0
   license_family: APACHE
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - NOTICE
   dev_url: https://github.com/spec-first/connexion
   doc_url: https://connexion.readthedocs.io/
 
