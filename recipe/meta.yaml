@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/connexion-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/connexion-{{ version }}.tar.gz
   sha256: 66a44580991f53955b6e409a84fa9fa65c7ca4db52dc217b49cd35c201066083
 
 build:
@@ -14,16 +14,16 @@ build:
     - connexion = connexion.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.8,<4.0
+    - python {{ python_min }}
     - poetry-core >=1.2.0
     - pip
 
   run:
-    - python >=3.8.0,<4.0.0
+    - python >={{ python_min }},<4.0.0
     - asgiref >=3.4
     - httpx >=0.23
     - inflection >=0.3.1
@@ -52,6 +52,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/spec-first/connexion
