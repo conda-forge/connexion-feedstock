@@ -1,5 +1,5 @@
 {% set name = "connexion" %}
-{% set version = "3.1.0" %}
+{% set version = "3.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,14 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/connexion-{{ version }}.tar.gz
-  sha256: 66a44580991f53955b6e409a84fa9fa65c7ca4db52dc217b49cd35c201066083
+  sha256: 0715d4a0393437aa2a48c144756360f9b5292635a05fd15c38cbbaf04ef5acb9
 
 build:
   entry_points:
     - connexion = connexion.cli:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 1
+  number: 0
 
 requirements:
   host:
@@ -23,13 +23,14 @@ requirements:
     - pip
 
   run:
+    - typing_extensions >=4.6.1
     - python >={{ python_min }},<4.0.0
     - asgiref >=3.4
     - httpx >=0.23
     - inflection >=0.3.1
     - jsonschema >=4.17.3
     - jinja2 >=3.0.0
-    - python-multipart >=0.0.5
+    - python-multipart >=0.0.15
     - pyyaml >=5.1
     - requests >=2.27
     - starlette >=0.35
