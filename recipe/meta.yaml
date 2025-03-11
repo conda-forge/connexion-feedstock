@@ -84,26 +84,27 @@ outputs:
       commands:
         - pip check
 
-  # - name: connexion-flask
-  #   build:
-  #     noarch: python
-  #   requirements:
-  #     host:
-  #       - python {{ python_min }}
-  #     run:
-  #       - python >={{ python_min }}
-  #       - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
-  #       - flask >=2.2.0
-  #       # - flask-asysnc >=2.2.0  # extra not provided
-  #   test:
-  #     requires:
-  #       - pip
-  #       - python {{ python_min }}
-  #     imports:
-  #       - connexion
-  #       - connexion.FlaskApp
-  #     commands:
-  #       - pip check
+  - name: connexion-flask
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+        - a2wsgi
+        - flask >=2.2.0
+        # - flask-asysnc >=2.2.0  # extra not provided
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
+    test:
+      requires:
+        - pip
+        - python {{ python_min }}
+      imports:
+        - connexion
+        # - connexion.FlaskApp
+      commands:
+        - pip check
 
   - name: connexion-swagger-ui
     build:
@@ -111,41 +112,60 @@ outputs:
     requirements:
       host:
         - python {{ python_min }}
+        - swagger-ui-bundle >=1.1.0
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
-        - swagger-ui-bundle >=1.1.0
     test:
       requires:
         - pip
         - python {{ python_min }}
       imports:
         - connexion
-        - connexion.AsyncApp
-        - connextion.options.SwaggerUIOptions
+        # - connexion.AsyncApp
+        # - connextion.options.SwaggerUIOptions
       commands:
         - pip check
 
-  # - name: connexion-uvicorn
-  #   build:
-  #     noarch: python
-  #   requirements:
-  #     host:
-  #       - python {{ python_min }}
-  #     run:
-  #       - python >={{ python_min }}
-  #       - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
-  #       - uvicorn >=0.34.0
-  #       - uvicorn-standard >=0.34.0
-  #   test:
-  #     requires:
-  #       - pip
-  #       - python {{ python_min }}
-  #     imports:
-  #       - connexion
-  #       - connexion.uvicorn
-  #     commands:
-  #       - pip check
+  - name: connexion-uvicorn
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+        - uvicorn >=0.34.0
+        - uvicorn-standard >=0.34.0
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
+    test:
+      requires:
+        - pip
+        - python {{ python_min }}
+      imports:
+        - connexion
+        # - connexion.uvicorn
+      commands:
+        - pip check
+
+  - name: connexion-mock
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+        - jsf >=0.34.0
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
+    test:
+      requires:
+        - pip
+        - python {{ python_min }}
+      imports:
+        - connexion
+      commands:
+        - pip check
 
 
 about:
