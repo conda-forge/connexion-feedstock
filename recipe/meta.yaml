@@ -18,7 +18,7 @@ outputs:
       entry_points:
         - connexion = connexion.cli:main
       noarch: python
-      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+      script: install_connexion.sh
     requirements:
       host:
         - python {{ python_min }}
