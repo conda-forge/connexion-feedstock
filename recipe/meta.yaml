@@ -1,6 +1,5 @@
 {% set name = "connexion" %}
 {% set version = "3.2.0" %}
-{% set python_exec = env_var('PYTHON', 'python') %}
 
 package:
   name: {{ name|lower }}
@@ -22,7 +21,7 @@ outputs:
       # script: recipe/install_connexion.sh
       script: |
         echo "The working directory is: $(pwd)"
-        echo "Python var: {{ python_exec }}"
+        echo "Python var: {{ PYTHON }}"
         python -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
