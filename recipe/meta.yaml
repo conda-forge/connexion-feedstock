@@ -10,7 +10,7 @@ source:
   sha256: 0715d4a0393437aa2a48c144756360f9b5292635a05fd15c38cbbaf04ef5acb9
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: connexion-base
@@ -24,7 +24,6 @@ outputs:
         - python {{ python_min }}
         - poetry-core >=1.2.0
         - pip
-
       run:
         - typing_extensions >=4.6.1
         - python >={{ python_min }},<4.0.0
