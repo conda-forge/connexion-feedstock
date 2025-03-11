@@ -95,7 +95,7 @@ outputs:
         - python {{ python_min }}
       imports:
         - connexion
-        - connexion.flask
+        - connexion.FlaskApp
       commands:
         - pip check
 
