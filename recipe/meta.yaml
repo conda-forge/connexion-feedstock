@@ -1,6 +1,6 @@
 {% set name = "connexion" %}
 {% set version = "3.2.0" %}
-{% set python_exec = {{ PYTHON }} %}
+{% set python_exec = env_var('PYTHON', 'python') %}
 
 package:
   name: {{ name|lower }}
@@ -95,7 +95,7 @@ outputs:
         - python {{ python_min }}
       imports:
         - connexion
-        - connexion.flask
+        - connexion.FlaskApp
       commands:
         - pip check
 
