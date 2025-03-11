@@ -1,5 +1,6 @@
 {% set name = "connexion" %}
 {% set version = "3.2.0" %}
+{% set python_exec = {{ PYTHON }} %}
 
 package:
   name: {{ name|lower }}
@@ -19,7 +20,10 @@ outputs:
         - connexion = connexion.cli:main
       noarch: python
       # script: recipe/install_connexion.sh
-      script: python -m pip install . -vv --no-deps --no-build-isolation
+      script: |
+        echo "The working directory is: $(pwd)"
+        echo "Python var: {{ python_exec }}"
+        python -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
         - python {{ python_min }}
