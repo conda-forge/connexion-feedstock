@@ -12,6 +12,14 @@ source:
 build:
   number: 1
 
+requirements:
+  host:
+    - python {{ python_min }}
+    - pip
+    - setuptools
+  run:
+    - python >={{ python_min }}
+
 outputs:
   - name: connexion-base
     build:
@@ -22,7 +30,7 @@ outputs:
       script: |
         echo "The working directory is: $(pwd)"
         echo "The current dir contains: $(ls -l)"
-        python -m pip install . -vv --no-deps --no-build-isolation
+        {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
         - python {{ python_min }}
