@@ -102,7 +102,9 @@ outputs:
         - python {{ python_min }}
       imports:
         - connexion
-        # - connexion.freameworks.flask
+        # see https://github.com/spec-first/connexion/blob/main/connexion/__init__.py
+        - connexion.apps.flask.FlaskApp
+        - connexion.App
       commands:
         - pip check
 
