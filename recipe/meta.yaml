@@ -18,7 +18,7 @@ outputs:
       entry_points:
         - connexion = connexion.cli:main
       noarch: python
-      script: install_connexion.sh
+      script: recipe/install_connexion.sh
     requirements:
       host:
         - python {{ python_min }}
