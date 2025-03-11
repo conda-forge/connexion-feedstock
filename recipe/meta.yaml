@@ -21,7 +21,6 @@ outputs:
       # script: recipe/install_connexion.sh
       script: |
         echo "The working directory is: $(pwd)"
-        echo "Python var: {{ PYTHON }}"
         python -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
@@ -30,7 +29,7 @@ outputs:
         - pip
       run:
         - typing_extensions >=4.6.1
-        - python >={{ python_min }},<4.0.0
+        - python >={{ python_min }}
         - asgiref >=3.4
         - httpx >=0.23
         - inflection >=0.3.1
@@ -68,6 +67,7 @@ outputs:
       host:
         - python {{ python_min }}
       run:
+        - python >={{ python_min }}
         - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
     test:
       requires:
@@ -85,6 +85,7 @@ outputs:
       host:
         - python {{ python_min }}
       run:
+        - python >={{ python_min }}
         - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
         - flask >=2.2.0
         # - flask-asysnc >=2.2.0  # extra not provided
@@ -105,6 +106,7 @@ outputs:
       host:
         - python {{ python_min }}
       run:
+        - python >={{ python_min }}
         - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
         - swagger-ui-bundle >=1.1.0
     test:
@@ -124,6 +126,7 @@ outputs:
       host:
         - python {{ python_min }}
       run:
+        - python >={{ python_min }}
         - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
         - uvicorn >=0.34.0
         - uvicorn-standard >=0.34.0
