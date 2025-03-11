@@ -10,50 +10,122 @@ source:
   sha256: 0715d4a0393437aa2a48c144756360f9b5292635a05fd15c38cbbaf04ef5acb9
 
 build:
-  entry_points:
-    - connexion = connexion.cli:main
-  noarch: python
-  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
-requirements:
-  host:
-    - python {{ python_min }}
-    - poetry-core >=1.2.0
-    - pip
+outputs:
+  - name: connexion-base
+    build:
+      entry_points:
+        - connexion = connexion.cli:main
+      noarch: python
+      script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+    requirements:
+      host:
+        - python {{ python_min }}
+        - poetry-core >=1.2.0
+        - pip
 
-  run:
-    - typing_extensions >=4.6.1
-    - python >={{ python_min }},<4.0.0
-    - asgiref >=3.4
-    - httpx >=0.23
-    - inflection >=0.3.1
-    - jsonschema >=4.17.3
-    - jinja2 >=3.0.0
-    - python-multipart >=0.0.15
-    - pyyaml >=5.1
-    - requests >=2.27
-    - starlette >=0.35
-    - typing-extensions >=4.6.1
-    - werkzeug >=2.2.1
-  run_constrained:
-    - a2wsgi >=1.7
-    - flask >=2.2
-    - swagger-ui-bundle >=1.1.0
-    - uvicorn >=0.17.6
-    - jsf >=0.10.0
+      run:
+        - typing_extensions >=4.6.1
+        - python >={{ python_min }},<4.0.0
+        - asgiref >=3.4
+        - httpx >=0.23
+        - inflection >=0.3.1
+        - jsonschema >=4.17.3
+        - jinja2 >=3.0.0
+        - python-multipart >=0.0.15
+        - pyyaml >=5.1
+        - requests >=2.27
+        - starlette >=0.35
+        - typing-extensions >=4.6.1
+        - werkzeug >=2.2.1
+      run_constrained:
+        - a2wsgi >=1.7
+        - flask >=2.2
+        - swagger-ui-bundle >=1.1.0
+        - uvicorn >=0.17.6
+        - jsf >=0.10.0
 
-test:
-  imports:
-    - connexion
-    - connexion.apps
-    - connexion.decorators
-  commands:
-    - connexion --version
-    - pip check
-  requires:
-    - pip
-    - python {{ python_min }}
+    test:
+      imports:
+        - connexion
+        - connexion.apps
+        - connexion.decorators
+      commands:
+        - connexion --version
+        - pip check
+      requires:
+        - pip
+        - python {{ python_min }}
+
+  - name: connexion
+    build:
+      noarch: python
+    test:
+      requires:
+        - pip
+        - python {{ python_min }}
+      imports:
+        - connexion
+      commands:
+        - pip check
+    requirements:
+      run:
+        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
+
+  - name: connexion-flask
+    build:
+      noarch: python
+    test:
+      requires:
+        - pip
+        - python {{ python_min }}
+      imports:
+        - connexion
+        - connexion.flask
+      commands:
+        - pip check
+    requirements:
+      run:
+        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
+        - flask >=2.2.0
+        # - flask-asysnc >=2.2.0  # extra not provided
+
+  - name: connexion-swagger-ui
+    build:
+      noarch: python
+    test:
+      requires:
+        - pip
+        - python {{ python_min }}
+      imports:
+        - connexion
+        - connexion.swagger-ui
+      commands:
+        - pip check
+    requirements:
+      run:
+        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
+        - swagger-ui-bundle >=1.1.0
+
+  - name: connexion-uvicorn
+    build:
+      noarch: python
+    test:
+      requires:
+        - pip
+        - python {{ python_min }}
+      imports:
+        - connexion
+        - connexion.uvicorn
+      commands:
+        - pip check
+    requirements:
+      run:
+        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
+        - uvicorn >=0.34.0
+        - uvicorn-standard >=0.34.0
+
 
 about:
   home: https://github.com/spec-first/connexion
