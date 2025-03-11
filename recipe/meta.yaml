@@ -26,7 +26,7 @@ outputs:
       entry_points:
         - connexion = connexion.cli:main
       noarch: python
-      # script: recipe/install_connexion.sh
+      # script: install_connexion.sh
       script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
@@ -102,7 +102,7 @@ outputs:
         - python {{ python_min }}
       imports:
         - connexion
-        # - connexion.FlaskApp
+        - connexion.freameworks.flask
       commands:
         - pip check
 
@@ -154,7 +154,7 @@ outputs:
     requirements:
       host:
         - python {{ python_min }}
-        - jsf >=0.34.0
+        - jsf >=0.11.2
       run:
         - python >={{ python_min }}
         - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
