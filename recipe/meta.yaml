@@ -18,7 +18,8 @@ outputs:
       entry_points:
         - connexion = connexion.cli:main
       noarch: python
-      script: recipe/install_connexion.sh
+      # script: recipe/install_connexion.sh
+      script: python -m pip install . -vv --no-deps --no-build-isolation
     requirements:
       host:
         - python {{ python_min }}
