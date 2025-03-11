@@ -60,6 +60,9 @@ outputs:
   - name: connexion
     build:
       noarch: python
+    requirements:
+      run:
+        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
     test:
       requires:
         - pip
@@ -68,13 +71,15 @@ outputs:
         - connexion
       commands:
         - pip check
-    requirements:
-      run:
-        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
 
   - name: connexion-flask
     build:
       noarch: python
+    requirements:
+      run:
+        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
+        - flask >=2.2.0
+        # - flask-asysnc >=2.2.0  # extra not provided
     test:
       requires:
         - pip
@@ -84,15 +89,14 @@ outputs:
         - connexion.flask
       commands:
         - pip check
-    requirements:
-      run:
-        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
-        - flask >=2.2.0
-        # - flask-asysnc >=2.2.0  # extra not provided
 
   - name: connexion-swagger-ui
     build:
       noarch: python
+    requirements:
+      run:
+        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
+        - swagger-ui-bundle >=1.1.0
     test:
       requires:
         - pip
@@ -102,14 +106,15 @@ outputs:
         - connexion.swagger-ui
       commands:
         - pip check
-    requirements:
-      run:
-        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
-        - swagger-ui-bundle >=1.1.0
 
   - name: connexion-uvicorn
     build:
       noarch: python
+    requirements:
+      run:
+        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
+        - uvicorn >=0.34.0
+        - uvicorn-standard >=0.34.0
     test:
       requires:
         - pip
@@ -119,11 +124,6 @@ outputs:
         - connexion.uvicorn
       commands:
         - pip check
-    requirements:
-      run:
-        - {{ pin_subpackage('connexion-base', max_pin="x.x.x") }}
-        - uvicorn >=0.34.0
-        - uvicorn-standard >=0.34.0
 
 
 about:
