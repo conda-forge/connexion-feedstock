@@ -83,6 +83,26 @@ outputs:
       commands:
         - pip check
 
+  - name: {{ name }}-with-swagger-ui
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - swagger-ui-bundle >=1.1.0
+    test:
+      requires:
+        - pip
+        - python {{ python_min }}
+      imports:
+        - connexion
+        - swagger_ui_bundle
+      commands:
+        - pip check
+
 about:
   home: https://github.com/spec-first/connexion
   summary: Connexion - API first applications with OpenAPI/Swagger
