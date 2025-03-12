@@ -59,6 +59,30 @@ outputs:
         - pip
         - python {{ python_min }}
 
+  - name: {{ name }}-with-flask
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - a2wsgi >=1.7
+        - flask >=2.2
+        # replace with flask-with-async as soon as available
+        # flask[async] extra
+        - asgiref >=3.2
+    test:
+      requires:
+        - pip
+        - python {{ python_min }}
+      imports:
+        - connexion
+        - connexion.apps.flask
+      commands:
+        - pip check
+
 about:
   home: https://github.com/spec-first/connexion
   summary: Connexion - API first applications with OpenAPI/Swagger
