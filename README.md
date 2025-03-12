@@ -32,6 +32,10 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-connexion-green.svg)](https://anaconda.org/conda-forge/connexion) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/connexion.svg)](https://anaconda.org/conda-forge/connexion) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/connexion.svg)](https://anaconda.org/conda-forge/connexion) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/connexion.svg)](https://anaconda.org/conda-forge/connexion) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-connexion--with--flask-green.svg)](https://anaconda.org/conda-forge/connexion-with-flask) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/connexion-with-flask.svg)](https://anaconda.org/conda-forge/connexion-with-flask) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/connexion-with-flask.svg)](https://anaconda.org/conda-forge/connexion-with-flask) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/connexion-with-flask.svg)](https://anaconda.org/conda-forge/connexion-with-flask) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-connexion--with--mock-green.svg)](https://anaconda.org/conda-forge/connexion-with-mock) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/connexion-with-mock.svg)](https://anaconda.org/conda-forge/connexion-with-mock) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/connexion-with-mock.svg)](https://anaconda.org/conda-forge/connexion-with-mock) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/connexion-with-mock.svg)](https://anaconda.org/conda-forge/connexion-with-mock) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-connexion--with--swagger--ui-green.svg)](https://anaconda.org/conda-forge/connexion-with-swagger-ui) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/connexion-with-swagger-ui.svg)](https://anaconda.org/conda-forge/connexion-with-swagger-ui) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/connexion-with-swagger-ui.svg)](https://anaconda.org/conda-forge/connexion-with-swagger-ui) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/connexion-with-swagger-ui.svg)](https://anaconda.org/conda-forge/connexion-with-swagger-ui) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-connexion--with--uvicorn-green.svg)](https://anaconda.org/conda-forge/connexion-with-uvicorn) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/connexion-with-uvicorn.svg)](https://anaconda.org/conda-forge/connexion-with-uvicorn) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/connexion-with-uvicorn.svg)](https://anaconda.org/conda-forge/connexion-with-uvicorn) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/connexion-with-uvicorn.svg)](https://anaconda.org/conda-forge/connexion-with-uvicorn) |
 
 Installing connexion
 ====================
@@ -43,16 +47,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `connexion` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `connexion, connexion-with-flask, connexion-with-mock, connexion-with-swagger-ui, connexion-with-uvicorn` can be installed with `conda`:
 
 ```
-conda install connexion
+conda install connexion connexion-with-flask connexion-with-mock connexion-with-swagger-ui connexion-with-uvicorn
 ```
 
 or with `mamba`:
 
 ```
-mamba install connexion
+mamba install connexion connexion-with-flask connexion-with-mock connexion-with-swagger-ui connexion-with-uvicorn
 ```
 
 It is possible to list all of the versions of `connexion` available on your platform with `conda`:
