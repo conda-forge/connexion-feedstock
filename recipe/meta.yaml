@@ -103,6 +103,27 @@ outputs:
       commands:
         - pip check
 
+  - name: {{ name }}-with-uvicorn
+    build:
+      noarch: python
+    requirements:
+      host:
+        - python {{ python_min }}
+      run:
+        - python >={{ python_min }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+        - uvicorn-standard >=0.17.6
+
+    test:
+      requires:
+        - pip
+        - python {{ python_min }}
+      imports:
+        - connexion
+        - uvicorn
+      commands:
+        - pip check
+
 about:
   home: https://github.com/spec-first/connexion
   summary: Connexion - API first applications with OpenAPI/Swagger
